@@ -6,7 +6,7 @@ class TreeNode:
     self.right = None
 
   def getChildren(self):
-    children = List()
+    children = []
     if(self.left != None):
       children.append(self.left)
     
