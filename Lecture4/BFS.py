@@ -14,6 +14,6 @@ def BFS(root):
     printTrackingLists(frontier, explored, i)
     i+=1
 
-
-graph1 = getTreeRoot("1")
-BFS(graph1)
+# For graphs 1 and 2
+for i in range(1,3):
+  BFS( getTreeRoot(str(i)))
