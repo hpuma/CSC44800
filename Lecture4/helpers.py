@@ -1,5 +1,5 @@
 from TreeNode import TreeNode
-
+# Create multiple custom graphs
 def getTreeRoot(graphType: str) -> TreeNode:
   root = None
   root = TreeNode("A")
@@ -21,19 +21,24 @@ def getTreeRoot(graphType: str) -> TreeNode:
   printTree(root)
   return root
 
-
+'''
+With a given tree root node
+  1. Print all nodes using preorder traversal
+  2. Print Tree using preorder traversal
+'''
 def printTree(root: TreeNode) -> None:
-    answer = []
-    print("Printing Tree:")
-    inorderTraversal(root, answer)
-    print(answer)
-    return answer
+  treeNodes = []
+  preOrderTraversal(root, treeNodes)
+  print("Tree Nodes:", treeNodes)
+  print(root)
+  
+  return treeNodes
 
-def inorderTraversal(root: TreeNode, answer: list) -> None:
-    if root is None:
-      return
-    inorderTraversal(root.left, answer)
-    answer.append(root.val)
-    inorderTraversal(root.right, answer)
+def preOrderTraversal(root: TreeNode, treeNodes: list) -> None:
+  if root is None:
     return
 
+  treeNodes.append(root.val)
+  preOrderTraversal(root.left, treeNodes)
+  preOrderTraversal(root.right, treeNodes)
+  return
