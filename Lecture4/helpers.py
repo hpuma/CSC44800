@@ -1,16 +1,16 @@
 from TreeNode import TreeNode
 
 # Create multiple custom graphs
-def getTreeRoot(graphType: str) -> TreeNode:
+def getTreeRoot(treeNum: str) -> TreeNode:
   root = None
   root = TreeNode(0)
   root.left = TreeNode(1)
   root.right = TreeNode(2)
 
-  if graphType == "1":
+  if treeNum == "1":
     root.left.left = TreeNode(3)
     root.left.right = TreeNode(4)
-  elif graphType == "2":
+  elif treeNum == "2":
     root.left = TreeNode(1)
     root.right = TreeNode(2)
 
@@ -25,6 +25,7 @@ def getTreeRoot(graphType: str) -> TreeNode:
   else:
     root = None
 
+  print("TREE NUMBER:\t", treeNum)
   printTree(root)
   return root
 
@@ -49,8 +50,3 @@ def preOrderTraversal(root: TreeNode, treeNodes: list) -> None:
   preOrderTraversal(root.left, treeNodes)
   preOrderTraversal(root.right, treeNodes)
   return
-
-def printTrackingLists(frontier: list, explored: list, iteration: int) -> None:
-  print("i = ", iteration)
-  print("Frontier:\t", frontier)
-  print("Explored:\t", explored, end="\n\n")

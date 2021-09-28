@@ -8,10 +8,10 @@ class TreeNode:
   def getChildren(self):
     children = []
    
-    if(self.left != None):
+    if self.left != None:
       children.append(self.left)
 
-    if(self.right != None):
+    if self.right != None:
       children.append(self.right)
 
     return children
@@ -28,4 +28,3 @@ class TreeNode:
 
   def __repr__(self):
     return str(self.val)
-    
