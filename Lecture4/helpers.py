@@ -2,19 +2,19 @@ from TreeNode import TreeNode
 # Create multiple custom graphs
 def getTreeRoot(graphType: str) -> TreeNode:
   root = None
-  root = TreeNode(1)
+  root = TreeNode(0)
   if graphType == "1":
-    root.left = TreeNode(2)
-    root.right = TreeNode(3)
+    root.left = TreeNode(1)
+    root.right = TreeNode(2)
 
-    root.left.left = TreeNode(4)
-    root.left.right = TreeNode(5)
+    root.left.left = TreeNode(3)
+    root.left.right = TreeNode(4)
 
-    root.right.left = TreeNode(6)
-    root.right.right = TreeNode(7)
+    root.right.left = TreeNode(5)
+    root.right.right = TreeNode(6)
 
-    root.left.right.left = TreeNode(8)
-    root.left.right.right = TreeNode(9)
+    root.left.right.left = TreeNode(7)
+    root.left.right.right = TreeNode(8)
   else:
     root = None
 
