@@ -8,19 +8,23 @@ class TreeNode:
   def getChildren(self):
     children = []
    
+    if(self.left != None):
+      children.append(self.left)
+
     if(self.right != None):
       children.append(self.right)
 
-    if(self.left != None):
-      children.append(self.left)
-    
     return children
     
   def __str__(self, level=0):
     ret = "\t" * level + repr(self.val) + "\n"
-    for child in self.getChildren():
-      ret += child.__str__(level+1)
+    if self.right != None:
+      ret += self.right.__str__(level+1)
+
+    if self.left != None:
+      ret += self.left.__str__(level+1)
+    
     return ret
 
   def __repr__(self):
-    return '<TreeNode>'
+    return str(self.val)
