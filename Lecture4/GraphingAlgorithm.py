@@ -1,12 +1,13 @@
-from TreeNode import *
-from helpers import * 
+from Node import *
 
 def printTrackingLists(frontier: list, explored: list, iteration: int) -> None:
   print("i = ", iteration)
   print("Frontier:\t", frontier)
   print("Explored:\t", explored, end="\n\n")
 
-def traverseTree(root, traverseType: str) -> None:
+def traverseTree(root: Node, traverseType: str) -> None:
+  if root == None:
+    return
   curr = root
   frontier = [curr]
   explored = []
@@ -18,4 +19,4 @@ def traverseTree(root, traverseType: str) -> None:
     frontier += curr.getChildren()
     explored.append(curr)
     printTrackingLists(frontier, explored, i)
-    i+=1
+    i += 1

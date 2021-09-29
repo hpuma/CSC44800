@@ -1,12 +1,22 @@
 from GraphingAlgorithm import *
+from helpers import *
 
-# Run BFS or DFS on all trees
-def runOnAllTrees(traverseType: str) -> None:
+# Run BFS or DFS on all trees, 1 <= traverseType <= 2
+def startSearch(traverseType: str, graphNum: int = 0 ) -> None:
   print(traverseType, "----------------------------")
-  for i in range(1,3):
-    treeRoot = getTreeRoot(str(i))
+  if graphNum:
+    treeRoot = getTreeRoot(graphNum)
     traverseTree(treeRoot, traverseType)
+  else:
+     for i in range(1,3):
+      treeRoot = getTreeRoot(i)
+      traverseTree(treeRoot, traverseType)
 
-# Main
-runOnAllTrees("BFS")
-runOnAllTrees("DFS")
+
+
+# Run BFS and DFS on all graphs
+# startSearch("BFS")
+# startSearch("DFS")
+
+# Run BFS and DFS on specific graphs
+startSearch("BFS", 2)
