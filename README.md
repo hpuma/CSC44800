@@ -1,7 +1,7 @@
 # CSC44800
 CSC 44800 - Artificial Intelligence
 
-# BFS
+# All Graphs
 ### Graph 1:
 
 ![graph1](https://user-images.githubusercontent.com/37905046/135167702-4cdde530-058c-432a-9db7-04c2efc4c6d4.png)
