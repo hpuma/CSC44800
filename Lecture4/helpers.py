@@ -2,28 +2,17 @@ from TreeNode import TreeNode
 
 # Create multiple custom graphs
 def getTreeRoot(treeNum: str) -> TreeNode:
+  # treeNum: 1
   root = None
-  root = TreeNode(0)
-  root.left = TreeNode(1)
-  root.right = TreeNode(2)
+  node = [TreeNode(i) for i in range(0,9)]
+  root = node[0]
+  root.setChildren([node[1], node[2]])
+  node[1].setChildren([node[3], node[4]])
 
-  if treeNum == "1":
-    root.left.left = TreeNode(3)
-    root.left.right = TreeNode(4)
-  elif treeNum == "2":
-    root.left = TreeNode(1)
-    root.right = TreeNode(2)
-
-    root.left.left = TreeNode(3)
-    root.left.right = TreeNode(4)
-
-    root.right.left = TreeNode(5)
-    root.right.right = TreeNode(6)
-
-    root.left.right.left = TreeNode(7)
-    root.left.right.right = TreeNode(8)
-  else:
-    root = None
+  # Build the remaining graph for treeNum: 2
+  if treeNum == "2":
+    node[2].setChildren([node[5], node[6]])
+    node[4].setChildren([node[7], node[8]])
 
   print("TREE NUMBER:\t", treeNum)
   printTree(root)
@@ -47,6 +36,8 @@ def preOrderTraversal(root: TreeNode, treeNodes: list) -> None:
     return
 
   treeNodes.append(root.val)
-  preOrderTraversal(root.left, treeNodes)
-  preOrderTraversal(root.right, treeNodes)
+  if root.children != None:
+     for child in root.getChildren():
+        if child != None:
+          preOrderTraversal(child, treeNodes)    
   return

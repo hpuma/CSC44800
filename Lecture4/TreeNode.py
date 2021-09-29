@@ -4,26 +4,25 @@ class TreeNode:
     self.val = val
     self.left = None
     self.right = None
+    self.children = None
+
+  def setChildren(self, children):
+    if not len(children):
+      return
+    self.children = children
 
   def getChildren(self):
-    children = []
-   
-    if self.left != None:
-      children.append(self.left)
+    return self.children if self.children != None else []
 
-    if self.right != None:
-      children.append(self.right)
-
-    return children
     
   def __str__(self, level=0):
     ret = "\t" * level + repr(self.val) + "\n"
-    if self.right != None:
-      ret += self.right.__str__(level+1)
-
-    if self.left != None:
-      ret += self.left.__str__(level+1)
     
+    if self.children != None:
+      reversedChildren = self.getChildren()[::-1]
+      for child in reversedChildren:
+        if child != None:
+          ret += child.__str__(level+1)    
     return ret
 
   def __repr__(self):
